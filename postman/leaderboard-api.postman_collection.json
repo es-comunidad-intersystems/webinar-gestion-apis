@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "624fb3c9-398d-47cd-8b2d-af21426645ff",
+		"name": "Leaderboard API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Player",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:52773/leaderboard/api/v1/player/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"leaderboard",
+						"api",
+						"v1",
+						"player",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Players",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:52773/leaderboard/api/v1/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"leaderboard",
+						"api",
+						"v1",
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Player",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "81824ec8-b2da-4008-a8b6-8d631bda7393",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"Freddie Fred\",\n    \"Alias\": \"juliusErving33\",\n    \"Team\": {\n        \"Name\": \"Castlevanians\",\n        \"City\": \"Mogambo\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52773/leaderboard/api/v1/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"leaderboard",
+						"api",
+						"v1",
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Player",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b4242c6-95f0-465b-8091-77e61615972d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"James Harden\",\n    \"Alias\": \"The Beard\",\n    \"Score\": 7474\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52773/leaderboard/api/v1/player/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"leaderboard",
+						"api",
+						"v1",
+						"player",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - GET Player - No auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/leaderboard/player/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"leaderboard",
+						"player",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - GET Player. Consumer SystemA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "systemAsecret",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/leaderboard/player/78",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"leaderboard",
+						"player",
+						"78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - GET Players - Consumer WebApp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "webappsecret",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/leaderboard/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"leaderboard",
+						"player"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bbc3aa6f-109d-4617-ab8d-29b3aba21687",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b5eece7c-29da-4f1d-8bb5-216f21a4822e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

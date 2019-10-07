@@ -1,0 +1,12 @@
+version: '3.2'
+
+services:
+  iris:
+    image: webinar-gestion-apis:stable
+    container_name: iris-2019.3
+    ports:
+    - "51773:51773"
+    - "52773:52773"
+    volumes:
+    - ./config/iris.key:/usr/irissys/mgr/iris.key
+    - ./shared:/shared
