@@ -11,7 +11,7 @@ Webinar sobre desarrollar y gestionar APIs con InterSystems IRIS Data Platform
 * Plugin VS Code InterSystems ObjectScript
 
 # Desarrollo API 
-## Configuración previa
+## Configuración previa
 Cargar imagen de InterSystems IRIS
 ```
 $ docker load -i iris-2019.3.0.302.0-docker.tar
@@ -272,9 +272,18 @@ $ curl -X POST http://localhost:8001/consumers/webapp/key-auth -d 'key=webappsec
 
 Probar en Postman `IAM - GET Players - Consumer WebApp`.
 
-## Developer Portal
+## Restricción de tráfico
+Crear una restricción de tráfico para el consumidor `webapp`. Limitar a 500 llamadas por minuto.
+```
+$ curl -X POST http://localhost:8001/consumers/webapp/plugins \
+    --data "name=rate-limiting" \
+    --data "config.minute=500"
+```
+
+Podemos simular tráfico de peticiones a la API utilizando el script `shared/simulate.sh`.
+
+## Developer Portal
 Publicar las especificaciones de nuestra API en el portal de desarrolladores de API Manager.
 `Dev Portal > Specs > Add Spec > "leaderboard" > Añadir especificaciones`
 
 La documentación del portal de desarrolladores está en: http://localhost:8003/default/documentation
-

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "624fb3c9-398d-47cd-8b2d-af21426645ff",
+		"_postman_id": "1aa42ea5-e620-4c5a-a16d-5156c944d88f",
 		"name": "Leaderboard API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -13,7 +13,7 @@
 					"script": {
 						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -55,7 +55,7 @@
 					"script": {
 						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -96,7 +96,7 @@
 					"script": {
 						"id": "81824ec8-b2da-4008-a8b6-8d631bda7393",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -114,7 +114,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Name\": \"Freddie Fred\",\n    \"Alias\": \"juliusErving33\",\n    \"Team\": {\n        \"Name\": \"Castlevanians\",\n        \"City\": \"Mogambo\"\n    }\n}"
+					"raw": "{\n    \"Name\": \"Freddie Fred\",\n    \"Alias\": \"juliusErving33\",\n    \"Team\": {\n        \"Name\": \"Castlevanians\",\n        \"City\": \"Eternia\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:52773/leaderboard/api/v1/player",
@@ -141,7 +141,7 @@
 					"script": {
 						"id": "6b4242c6-95f0-465b-8091-77e61615972d",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -159,7 +159,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Name\": \"James Harden\",\n    \"Alias\": \"The Beard\",\n    \"Score\": 7474\n}"
+					"raw": "{\n    \"Name\": \"James Harden\",\n    \"Alias\": \"The Beard\",\n    \"Score\": 7474,\n    \"Team\": {\n    \t\"Name\": \"Rockets\",\n    \t\"City\": \"Houston\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:52773/leaderboard/api/v1/player/101",
@@ -180,6 +180,423 @@
 			"response": []
 		},
 		{
+			"name": "IAM - Config - Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "iris-leaderboard-v1-service",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://192.168.1.139:52773/leaderboard/api/v1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/services/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"services",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Route",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "paths[]",
+							"value": "/leaderboard",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/services/iris-leaderboard-v1-service/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"services",
+						"iris-leaderboard-v1-service",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Auth in Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "key-auth",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/services/iris-leaderboard-v1-service/plugins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"services",
+						"iris-leaderboard-v1-service",
+						"plugins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Consumer SystemA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "systemA",
+							"type": "text"
+						},
+						{
+							"key": "custom_id",
+							"value": "SYSTEM_A",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/consumers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"consumers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Consumer webapp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "webapp",
+							"type": "text"
+						},
+						{
+							"key": "custom_id",
+							"value": "WEB_APP",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/consumers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"consumers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Key SystemA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "systemAsecret",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/consumers/systemA/key-auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"consumers",
+						"systemA",
+						"key-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Key webapp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "key",
+							"value": "webappsecret",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/consumers/webapp/key-auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"consumers",
+						"webapp",
+						"key-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - Config - Rate Limit webapp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "rate-limiting",
+							"type": "text"
+						},
+						{
+							"key": "config.minute",
+							"value": "500",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8001/consumers/webapp/plugins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"consumers",
+						"webapp",
+						"plugins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "IAM - GET Player - No auth",
 			"event": [
 				{
@@ -187,7 +604,7 @@
 					"script": {
 						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -220,14 +637,14 @@
 			"response": []
 		},
 		{
-			"name": "IAM - GET Player. Consumer SystemA",
+			"name": "IAM - GET Player - Consumer SystemA",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -241,8 +658,8 @@
 				"header": [
 					{
 						"key": "apikey",
-						"value": "systemAsecret",
-						"type": "text"
+						"type": "text",
+						"value": "systemAsecret"
 					}
 				],
 				"body": {
@@ -273,7 +690,7 @@
 					"script": {
 						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+							""
 						],
 						"type": "text/javascript"
 					}
