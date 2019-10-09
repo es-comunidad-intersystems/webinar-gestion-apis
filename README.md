@@ -47,6 +47,10 @@ http://localhost:52773/csp/sys/UtilHome.csp
 * Cargar el contenido del archivo `shared/leaderboard-api-v1.yaml` para revisar la definición de la API.
 
 ## Implementación
+### Revisar clases en namespace WEBINAR
+* Revisar las clases `Webinar.Data.Player` y `Webinar.Data.Team` que serán utilizadas en la API.
+* Consultar los datos utilizando `System Explorer > SQL`
+
 ### Generar API a partir de especificaciones
 * Abre una sesión de sesión de WebTerminal desde http://localhost:52773/terminal/
 
