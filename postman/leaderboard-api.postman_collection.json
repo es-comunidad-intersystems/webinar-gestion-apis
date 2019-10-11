@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1aa42ea5-e620-4c5a-a16d-5156c944d88f",
+		"_postman_id": "8b377b37-4fb5-46bf-a656-25f7705a8081",
 		"name": "Leaderboard API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -213,7 +213,7 @@
 						},
 						{
 							"key": "url",
-							"value": "http://192.168.1.139:52773/leaderboard/api/v1",
+							"value": "http://172.24.28.182:52773/leaderboard/api/v1",
 							"type": "text"
 						}
 					]
@@ -706,6 +706,51 @@
 						"key": "apikey",
 						"value": "webappsecret",
 						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/leaderboard/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"leaderboard",
+						"player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IAM - GET Players - Developer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21d86e73-910d-4b2d-9be6-93be6bcb4a3a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "JpEttNiRV6i8R6ugZc5bYdzQk5QEA0zt"
 					}
 				],
 				"body": {

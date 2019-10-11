@@ -1,5 +1,5 @@
 # webinar-gestion-apis
-Webinar sobre desarrollar y gestionar APIs con InterSystems IRIS Data Platform
+Webinar sobre cómo desarrollar y gestionar APIs con InterSystems IRIS Data Platform
 
 # ¿Qué necesitas?
 * Docker Container
@@ -12,43 +12,53 @@ Webinar sobre desarrollar y gestionar APIs con InterSystems IRIS Data Platform
 
 # Desarrollo API 
 ## Configuración previa
-Cargar imagen de InterSystems IRIS
+Carga la imagen Docker de InterSystems IRIS
 ```
 $ docker load -i iris-2019.3.0.302.0-docker.tar
 ```
 
-## Descargar código
+## Descargar código del webinar
 ```
 $ git clone https://github.com/es-comunidad-intersystems/webinar-gestion-apis.git
 ```
 
-Copiar archivo de licencia en `config/iris.key`.
+Copia la licencia de InterSystems IRIS en `config/iris.key`.
 
-## Construir imagen Docker
+## Construir imagen Docker del webinar
+Construiremos una imagen Docker que contiene un IRIS con todo lo que necesitamos para el webinar.
 ```
 $ docker build . --tag webinar-gestion-apis:stable --no-cache
 ```
 
-### Ejecutar container
+### Ejecutar container del webinar
+Ejecutamos la instancia de IRIS que utilizaremos durante el webinar.
 ```
 $ docker-compose up -d
 ```
 
-* Acceder al portal de gestión de IRIS con el usuario `superuser` y contraseña `SYS`
+* Accede al portal de gestión de IRIS con el usuario `superuser` y contraseña `SYS`
 http://localhost:52773/csp/sys/UtilHome.csp
 
-* Cambiar la contraseña inicial.
+* Cambia la contraseña inicial.
 
 
 ## Especificaciones
 
 ### OpenAPI (Swagger)
-* Abrir https://editor.swagger.io
-* Cargar el contenido del archivo `shared/leaderboard-api-v1.yaml` para revisar la definición de la API.
+* La especificación de la API está en `shared/leaderboard-api-v1.yaml`. 
+* Abre https://editor.swagger.io ó https://app.swaggerhub.com/login y échale un vistazo.
 
 ## Implementación
+La imagen Docker que nos hemos construido para el webinar ya tiene la API implementada y lista para funcionar :)
+
+Así que puedes saltar directamente a la sección [Probar la API](#probar-la-api).
+
+De todas formas, te ponemos a continuación los pasos para crearla desde cero tú mismo.
+
 ### Generar API a partir de especificaciones
-* Abre una sesión de sesión de WebTerminal desde http://localhost:52773/terminal/
+En este caso utilizamos la herramienta de línea de comando `^%REST` para crear el código a partir de las especificaciones.
+
+Abre una sesión de sesión de WebTerminal desde http://localhost:52773/terminal/
 
 ```
 WEBINAR > do ^%REST 
@@ -176,9 +186,11 @@ ClassMethod deletePlayer(playerId As %Integer) As %DynamicObject
 
 # API Manager
 ## Instalación
-* En IRIS, habilitar la aplicación web `/api/iam`
-* En IRIS, habilitar y cambiar contraseña a usuario `IAM`
-* Descomprimir archivo `IAM-0.34-1-1.tar` (creará el directorio `IAM`) 
+* *Habilita* y establece una *nueva contraseña* al usuario IAM en [Portal Gestión IRIS](http://localhost:52773/csp/sys/UtilHome.csp) 
+`System Administration > Security > Users > IAM`.
+* *Habilita* la aplicación web /api/iam en [Portal Gestión IRIS](http://localhost:52773/csp/sys/UtilHome.csp) 
+`System Administration > Security > Applications > Web Applications`.
+* Descomprime archivo `IAM-0.34-1-1.tar` (creará el directorio `IAM`) 
 
 * Cargar imagen docker IAM
 ```
@@ -216,7 +228,7 @@ $ cd IAM/scripts
 $ docker-compose up -d
 ```
 
-* Accede al API Manager utilizando http://localhost:8002/overview
+* Accede al API Manager utilizando http://localhost:8002/default/dashboard
 
 
 ## Añadir la API al API Manager
@@ -273,17 +285,27 @@ $ curl -X POST http://localhost:8001/consumers/webapp/key-auth -d 'key=webappsec
 Probar en Postman `IAM - GET Players - Consumer WebApp`.
 
 ## Restricción de tráfico
-Crear una restricción de tráfico para el consumidor `webapp`. Limitar a 500 llamadas por minuto.
+Podemos simular tráfico de peticiones a la API utilizando el script `shared/simulate.sh`.
+
+Crear una restricción de tráfico para el consumidor `webapp`. Limitar a 100 llamadas por minuto.
 ```
 $ curl -X POST http://localhost:8001/consumers/webapp/plugins \
     --data "name=rate-limiting" \
-    --data "config.minute=500"
+    --data "config.minute=100"
 ```
 
-Podemos simular tráfico de peticiones a la API utilizando el script `shared/simulate.sh`.
-
 ## Developer Portal
-Publicar las especificaciones de nuestra API en el portal de desarrolladores de API Manager.
-`Dev Portal > Specs > Add Spec > "leaderboard" > Añadir especificaciones`
 
-La documentación del portal de desarrolladores está en: http://localhost:8003/default/documentation
+### Configurar el Developer Portal
+Configuramos el portal para que los desarrolladores se puedan registrar automáticamente.
+[Portal IAM](http://localhost:8002/default/dashboard) `Dev Portal > Settings > Authentication Plugin=Basic, Auto Approve Access=Enable > Save Changes`
+
+### Publicar especificaciones API
+Publicamos las especificaciones de nuestra API para que estén disponibles en el portal:
+[Portal IAM](http://localhost:8002/default/dashboard) `Dev Portal > Specs > Add Spec > "leaderboard" > Añadir especificaciones`
+
+### Desarrolladores y API credentials
+* Accedemos al [Developer Portal](http://127.0.0.1:8003/default) y hacemos click en `Sign Up`.
+* Como desarrolladores, nos creamos una API en `Create API Credential`.
+* Probamos en Postman `IAM - Get Players - Developer` cambiando la cabecera `api-key` por la API credential que acabamos de generar.
+* Podemos acceder a la documentación publicada de APIs haciendo click en `Documentation`.
