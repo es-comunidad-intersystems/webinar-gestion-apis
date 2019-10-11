@@ -55,6 +55,10 @@ Así que puedes saltar directamente a la sección [Probar la API](#probar-la-api
 
 De todas formas, te ponemos a continuación los pasos para crearla desde cero tú mismo.
 
+### Revisar clases en namespace WEBINAR
+* Revisar las clases `Webinar.Data.Player` y `Webinar.Data.Team` que serán utilizadas en la API.
+* Consultar los datos utilizando `System Explorer > SQL`
+
 ### Generar API a partir de especificaciones
 En este caso utilizamos la herramienta de línea de comando `^%REST` para crear el código a partir de las especificaciones.
 
