@@ -10,21 +10,27 @@ Webinar sobre cómo desarrollar y gestionar APIs con InterSystems IRIS Data Plat
 * Visual Studio Code
 * Plugin VS Code InterSystems ObjectScript
 
+# Preparación
+Si quieres seguir la parte práctica del Webinar te recomendamos lo siguiente:
+* Échale un vistazo a los [videotutoriales](https://comunidadintersystems.com/videotutoriales) que tenemos en la Comunidad InterSystems para tener claro cómo utilizar Docker y Visual Studio Code con IRIS. 
+* Prepara lo que necesitamos para la parte práctica siguiendo las secciones [Instalación de IRIS](#instalacion-de-iris) e [Instalación de IAM](#instalacion-de-iris).
+
+
 # Desarrollo API 
-## Configuración previa
+## Instalación de IRIS
 Carga la imagen Docker de InterSystems IRIS
 ```
 $ docker load -i iris-2019.3.0.302.0-docker.tar
 ```
 
-## Descargar código del webinar
+### Descargar código del webinar
 ```
 $ git clone https://github.com/es-comunidad-intersystems/webinar-gestion-apis.git
 ```
 
 Copia la licencia de InterSystems IRIS en `config/iris.key`.
 
-## Construir imagen Docker del webinar
+### Construir imagen Docker del webinar
 Construiremos una imagen Docker que contiene un IRIS con todo lo que necesitamos para el webinar.
 ```
 $ docker build . --tag webinar-gestion-apis:stable --no-cache
@@ -189,7 +195,7 @@ ClassMethod deletePlayer(playerId As %Integer) As %DynamicObject
 
 
 # API Manager
-## Instalación
+## Instalación de IAM
 * *Habilita* y establece una *nueva contraseña* al usuario IAM en [Portal Gestión IRIS](http://localhost:52773/csp/sys/UtilHome.csp) 
 `System Administration > Security > Users > IAM`.
 * *Habilita* la aplicación web /api/iam en [Portal Gestión IRIS](http://localhost:52773/csp/sys/UtilHome.csp) 
