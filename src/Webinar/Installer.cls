@@ -24,6 +24,9 @@ XData Install [ XMLNamespace = INSTALLER ]
             <Invoke Class="Security.Roles" Method="Import" CheckStatus="true">
                 <Arg Value="/opt/webinar/install/Webinar-Role.xml"/>
             </Invoke>
+            <Invoke Class="Security.Applications" Method="Import" CheckStatus="true">
+                <Arg Value="/opt/webinar/install/webapp-leaderboard-api-v1.xml"/>
+            </Invoke>
         </Namespace>
     </Manifest>
 }
