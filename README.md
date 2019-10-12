@@ -30,6 +30,8 @@ $ git clone https://github.com/es-comunidad-intersystems/webinar-gestion-apis.gi
 
 Copia la licencia de InterSystems IRIS en `config/iris.key`.
 
+Para que la parte del API Manager pueda funcionar se necesita una licencia de IRIS con una licencia de IAM embebida. Para comprobar que la licencia de IRIS tiene esta licencia embebida verifica que en el fichero iris.key se encuentra una sección *[ISC.IAM]*
+
 ### Construir imagen Docker del webinar
 Construiremos una imagen Docker que contiene un IRIS con todo lo que necesitamos para el webinar.
 ```
