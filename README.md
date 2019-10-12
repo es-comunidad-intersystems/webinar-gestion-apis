@@ -18,7 +18,7 @@ Si quieres seguir la parte práctica del Webinar te recomendamos lo siguiente:
 
 # Desarrollo API 
 ## Instalación de IRIS
-Carga la imagen Docker de InterSystems IRIS
+Carga la imagen Docker de InterSystems IRIS. Esta imagen se puede descargar desde el WRC (en este momento desde Preview Distributions)
 ```
 $ docker load -i iris-2019.3.0.302.0-docker.tar
 ```
