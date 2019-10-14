@@ -14,14 +14,14 @@ Webinar sobre cómo desarrollar y gestionar APIs con InterSystems IRIS Data Plat
 Si quieres seguir la parte práctica del Webinar te recomendamos lo siguiente:
 * Échale un vistazo a los [videotutoriales](https://comunidadintersystems.com/videotutoriales) que tenemos en la Comunidad InterSystems para tener claro cómo utilizar Docker y Visual Studio Code con IRIS.
 * Mira en este [artículo](https://es.community.intersystems.com/post/mejoras-en-procesamiento-json) cómo podemos utilizar `%JSON.Adaptor` para serializar en formato JSON objetos que tengamos en IRIS.
-* Prepara lo que necesitamos para la parte práctica siguiendo las secciones [Instalación de IRIS](#instalacion-de-iris) e [Instalación de IAM](#instalacion-de-iris).
+* Prepara lo que necesitamos para la parte práctica siguiendo las secciones [Instalación de IRIS](#instalación-de-iris) e [Instalación de IAM](#instalación-de-iris).
 
 
 # Desarrollo API 
 ## Instalación de IRIS
 Carga la imagen Docker de InterSystems IRIS. Esta imagen se puede descargar desde el WRC (en este momento desde Preview Distributions)
 ```
-$ docker load -i iris-2019.3.0.302.0-docker.tar
+$ docker load -i iris-2019.3.0.302.0-docker.tar.gz
 ```
 
 ### Descargar código del webinar
